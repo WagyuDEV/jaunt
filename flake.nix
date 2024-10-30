@@ -22,7 +22,7 @@
             pkg-config
             eza
             fd
-            rust-bin.beta.latest.default
+            (rust-bin.stable.latest.default.override { extensions = [ "rust-analyzer" "rust-src" ]; })
           ];
 
           shellHook = ''
