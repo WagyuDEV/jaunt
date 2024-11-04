@@ -30,11 +30,11 @@ fn main() {
         Some(("init", _)) => {
             jaunt_init();
         },
-        Some(("track", _subs)) => {
-            // test
-        }
-        Some(("untrack", _subs)) => {
+        Some(("track", _)) => {
 
+        }
+        Some(("untrack", _)) => {
+            //test
         }
         _ => {}
     }
