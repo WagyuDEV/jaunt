@@ -1,14 +1,8 @@
 # Jaunt - Push that jaunt
-A toy git clone
+A better solution for git ignore
 
 # Goals
-* [] Core file tracking functionality
-	- [] track (add)
-		* [] Regex for adding and removing files
-	- [] commit
-	- [] shove (push)
-	- [] yoink (pull)
-	- [] clone
-* [] .jaunt - repo config file
-	- [] TOML syntax
-	- [] .gitignore functionality
+* [X] Create TOML
+	- [ ] Populate TOML
+	- [ ] Read data from TOML in order to decide files to track
+	- [ ] add and remove files from command line
