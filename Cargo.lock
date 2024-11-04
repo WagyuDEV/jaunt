@@ -114,7 +114,12 @@ name = "jaunt"
 version = "0.1.0"
 dependencies = [
  "clap",
+ "jauntings",
 ]
+
+[[package]]
+name = "jauntings"
+version = "0.1.0"
 
 [[package]]
 name = "proc-macro2"
