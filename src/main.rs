@@ -29,6 +29,12 @@ fn main() {
     match matches.subcommand() {
         Some(("init", _)) => {
             jaunt_init();
+        },
+        Some(("track", _)) => {
+
+        }
+        Some(("untrack", _)) => {
+
         }
         _ => {}
     }
