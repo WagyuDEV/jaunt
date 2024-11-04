@@ -6,6 +6,9 @@ fn commandler() -> Command {
         .subcommand_required(false)
         .arg_required_else_help(true)
         .subcommand(
+            Command::new("init")
+            .about("Initialize a new jaunt repo")
+        ).subcommand(
             Command::new("track")
             .about("Choose the files that jaunt tracks")
             .arg_required_else_help(true)
@@ -31,4 +34,10 @@ fn commandler() -> Command {
 
 fn main() {
     let matches = commandler().get_matches();
+
+    match matches.subcommand() {
+        Some(("init", cmd)) => {
+            
+        }
+    }
 }
