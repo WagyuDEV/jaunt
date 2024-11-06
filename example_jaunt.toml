@@ -1,0 +1,8 @@
+[config]
+regex = true
+
+[tracking] # top level
+ignore = ['example_file\..'] # since by default these are regex patterns we must escape the . with a \
+ignore_dirs = ['example_dir'] # exludes the whole directory
+include = ['file_int_example_dir\..conf', ]
+include_dirs = ['example_dir/sub_dir'] # makes an exception to the exclusion to include example_dir and sub_dir, no other files in the directory
