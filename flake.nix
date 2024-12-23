@@ -22,6 +22,7 @@
             pkg-config
             eza
             fd
+            rustup
             (rust-bin.stable.latest.default.override { extensions = [ "rust-analyzer" "rust-src" ]; })
           ];
 

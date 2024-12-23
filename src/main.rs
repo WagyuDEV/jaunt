@@ -1,4 +1,4 @@
-use jauntings::jaunt_init;
+use jauntings::{jaunt_init, jaunt_track, jaunt_untrack};
 
 use clap::{arg, Arg, ArgAction, Command};
 
@@ -13,24 +13,52 @@ fn commandler() -> Command {
         )
         .subcommand(
             Command::new("track")
-                .about("Choose the files that jaunt tracks")
+                .about("Add files or dirs to their respective include arrays in jaunt.toml, calling this functions calls sync by default")
                 .arg_required_else_help(true)
+                // .arg(
+                //     Arg::new("dir")
+                //     .long("dir")
+                //     .short('d')
+                //     .help("Specify that a pattern is meant to apply to directories")
+                // )
                 .arg(
-                    Arg::new("dir")
-                    .long("dir")
-                    .short('d')
-                    .help("Specify that a pattern is meant to apply to directories")
+                    Arg::new("no-sync")
+                    .long("no-sync")
+                    .short('S')
+                    .help("Do not run sync after editing jaunt.toml via command")
+                )
+                .arg(
+                    Arg::new("remove")
+                    .long("remove")
+                    .short('R')
+                    .help("Remove provided pattern from the include section of jaunt.toml")
+                )
+                .arg(
+                    Arg::new("patterns")
+                    .required(true)
+                    .num_args(1..)
                 )
         )
         .subcommand(
             Command::new("untrack")
-            .about("Stop tracking a file")
+            .about("Add files or dirs to their respective ignore arrays in jaunt.toml, calling this functions calls sync by default")
             .arg_required_else_help(true)
+            // .arg(
+            //     Arg::new("dir")
+            //     .long("dir")
+            //     .short('d')
+            //     .help("Specify that a pattern is meant to apply to directories")
+            // )
             .arg(
-                Arg::new("dir")
-                .long("dir")
-                .short('d')
-                .help("Specify that a pattern is meant to apply to directories")
+                Arg::new("no-sync")
+                .long("no-sync")
+                .short('S')
+                .help("Do not run sync after editing jaunt.toml via command")
+            )
+            .arg(
+                Arg::new("patterns")
+                .required(true)
+                .num_args(1..)
             )
         )
         .subcommand(
@@ -46,11 +74,11 @@ fn main() {
         Some(("init", _)) => {
             jaunt_init();
         },
-        Some(("track", _subs)) => {
-            // testing
+        Some(("track", subs)) => {
+            jaunt_track(subs);
         }
-        Some(("untrack", _subs)) => {
-            // test
+        Some(("untrack", subs)) => {
+            jaunt_untrack(subs);
         }
         _ => {}
     }
